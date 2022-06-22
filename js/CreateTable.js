@@ -9,7 +9,38 @@
 //GUI Assignment: create dynamic table
 
 
+function validate(){
 
+ $("#MultiTable").validate({
+   rules:{
+     HorizonStartRow:{
+       number: true,
+       min: -50,
+       max: 50,
+       required: true;
+     }
+   },
+
+   messages:{
+     HorizonStartRow:{
+       number: "ERROR: you did not enter a valid number.<br/>",
+       min: "ERROR: number entered is too small.<br/>",
+       max: "ERROR: number entered is too large.<br/>",
+       required: "ERROR: no number was entered.<br/>"
+     }
+
+   }
+
+
+
+
+
+
+ });
+
+
+
+}
 
 function MakeTable(){
   //Collect values by getting elementby ID and use Number Function to make sure its saved a number variable
