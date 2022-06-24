@@ -29,21 +29,22 @@
       <div class ="container"><!-- Following the steps of pdf, create a form that asks for 4 values  -->
         <div class="row">
           <div class= "col-md-12"><!-- I utilized bootstrap and some of the previous class works to create this form -->
-            <formon submit="return false"><!--When i tried to debug, the form would reset of bad values I learned from here http://www.java2s.com/Tutorials/Javascript/Javascript_Form_How_to/Submit_Button/Return_false_in_form_Submit_button_click_event_to_stop_form_submission.htm, you can stop that -->
+            <form id="Tableform" name="Tableform"><!--When i tried to debug, the form would reset of bad values I learned from here http://www.java2s.com/Tutorials/Javascript/Javascript_Form_How_to/Submit_Button/Return_false_in_form_Submit_button_click_event_to_stop_form_submission.htm, you can stop that -->
               <label>Minimum Row Value: </label>
               <input type="number" name="HorizonStartRow" id="HorizonStartRow" value="1">
               <br>
               <label>Maximum Row Value: </label>
-              <input type="number" name="HorizonEndRow" id="HorizonEndRow" value="6">
+              <input type="number" name="HorizonEndRow" id="HorizonEndRow" value="5">
               <br>
               <label>Minimum Column Value: </label>
               <input type="number" name="VerticalStartRow" id="VerticalStartRow" value="1">
               <br>
               <label>Maximum Column Value: </label>
-              <input type="number" name="VerticleEndRow" id="VerticleEndRow" value="6">
+              <input type="number" name="VerticleEndRow" id="VerticleEndRow" value="5">
               <br>
-              <input type="submit" value="Submit " onclick="return MakeTable();"><!-- on click submits cals make table function -->
+              <input id="button_submit" class="submit_button" type="submit" >
             </form>
+
 
           </div>
         </div>
@@ -57,8 +58,13 @@
       <script src="js/CreateTable.js"></script>
 
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-      <script type='text/javascript' src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.js"></script>
-      <script type='text/javascript' src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/additional-methods.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/additional-methods.js"></script>
+      <script>
+        $(document).ready(function(){
+          validate();
+        });
+      </script>
     </body>
 
 

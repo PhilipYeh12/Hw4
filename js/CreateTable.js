@@ -1,47 +1,83 @@
 
-//For this java script assigment I first started off with getting the values of the user by using get element I'D.
-//After that I had to check the values and put restrictions on what the user can use, I also imputed a error message.
-//Then I had to make the actual table, I used the idea of calculating each row and putting it into a array, then putting the series of arrays in the matrix.
-//After calculating the numbers and making the matrix I created another function to create the table.
-//Getting the values again, we beging parsing the matrix and adding along the table values at the same time.
-
+//For this java script assigment I copied my last assigment and then used the reference site that taught about validation and using rules
 //Philip Yeh
-//GUI Assignment: create dynamic table
+//GUI Assignment: create dynamic table with validation part 1
+
+function validate() {
 
 
-function validate(){
+  $("#Tableform").validate({
 
- $("#MultiTable").validate({
-   rules:{
-     HorizonStartRow:{
-       number: true,
-       min: -50,
-       max: 50,
-       required: true;
-     }
-   },
+    rules: {
+      HorizonStartRow: {
+        min: -50,
+        max: 50,
+        number: true,
+        required: true
+      },
+      HorizonEndRow: {
 
-   messages:{
-     HorizonStartRow:{
-       number: "ERROR: you did not enter a valid number.<br/>",
-       min: "ERROR: number entered is too small.<br/>",
-       max: "ERROR: number entered is too large.<br/>",
-       required: "ERROR: no number was entered.<br/>"
-     }
+        min: -50,
+        max: 50,
+        number: true,
+        required: true
+      },
+      VerticalStartRow: {  
+        min: -50,
+        max: 50,
+        number: true,
+        required: true
+      },
+      VerticleEndRow: {
+        min: -50,
+        max: 50,
+        number: true,
+        required: true
+      }
+    },
 
-   }
+
+    messages: {
+      HorizonStartRow: {
+        number: "ERROR: you did not enter a valid number.",
+        min: "ERROR: number entered is too small.",
+        max: "ERROR: number entered is too large.",
+        required: "ERROR: no number was entered."
+      },
+      HorizonEndRow: {
+        number: "ERROR: you did not enter a valid number.",
+        min: "ERROR: number entered is too small.",
+        max: "ERROR: number entered is too large.",
+        required: "ERROR: no number was entered."
+      },
+      VerticalStartRow: {
+        number: "ERROR: you did not enter a valid number.",
+        min: "ERROR: number entered is too small.",
+        max: "ERROR: number entered is too large.",
+        required: "ERROR: no number was entered."
+      },
+      VerticleEndRow: {
+        number: "ERROR: you did not enter a valid number.",
+        min: "ERROR: number entered is too small.",
+        max: "ERROR: number entered is too large.",
+        required: "ERROR: no number was entered."
+      }
+    },
 
 
+    submitHandler: function() {
+      MakeTable();
+      return false;
+    },
+
+    invalidHandler: function() {
+
+      $("#MultiTable").empty();
+    }
 
 
-
-
- });
-
-
-
+  });
 }
-
 function MakeTable(){
   //Collect values by getting elementby ID and use Number Function to make sure its saved a number variable
   var H_start = Number(document.getElementById('HorizonStartRow').value)
@@ -66,7 +102,8 @@ function MakeTable(){
     V_end = tmp;
   }
 
-  // double check values
+  // double check values commented out previous
+  /*
   console.log("Horizontal start: ", H_start, "Horizontal end: ", H_end,
               "Vertical start: ", V_start, "Vertical end: ", V_end);
 
@@ -80,7 +117,7 @@ function MakeTable(){
     //else display a Success message
     document.getElementById("error").innerHTML = "Success!, your numbers fit within the restrictions and your table is being made";
   }
-
+  */
   //create the matix
   var matrix = {};
 
@@ -184,4 +221,5 @@ function create_table(matrix){
   contents += "</table>";
   //input matrix into html and learned a little bit about jQuery.https://www.w3schools.com/jquery/html_html.asp this teaches how to add content
   $("#MultiTable").html(contents);
+  return false;
 }
