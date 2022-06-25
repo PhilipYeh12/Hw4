@@ -1,5 +1,6 @@
 
 //For this java script assigment I copied my last assigment and then used the reference site that taught about validation and using rules
+//I used the documentation that was provided to us and I look at other online examples on how to use validation rules
 //Philip Yeh
 //GUI Assignment: create dynamic table with validation part 1
 
@@ -7,7 +8,7 @@ function validate() {
 
 
   $("#Tableform").validate({
-
+//rules of the our validation
     rules: {
       HorizonStartRow: {
         min: -50,
@@ -22,7 +23,7 @@ function validate() {
         number: true,
         required: true
       },
-      VerticalStartRow: {  
+      VerticalStartRow: {
         min: -50,
         max: 50,
         number: true,
@@ -36,45 +37,44 @@ function validate() {
       }
     },
 
-
+//the messages they pop up with
     messages: {
       HorizonStartRow: {
-        number: "ERROR: you did not enter a valid number.",
-        min: "ERROR: number entered is too small.",
-        max: "ERROR: number entered is too large.",
-        required: "ERROR: no number was entered."
+        number: "ERROR: you did not enter a valid number. Please enter another",
+        min: "ERROR: number entered is too small. Must be greater than -50",
+        max: "ERROR: number entered is too large. Must be less than 50",
+        required: "ERROR: no number was entered. Try again"
       },
       HorizonEndRow: {
-        number: "ERROR: you did not enter a valid number.",
-        min: "ERROR: number entered is too small.",
-        max: "ERROR: number entered is too large.",
-        required: "ERROR: no number was entered."
+        number: "ERROR: you did not enter a valid number. Please enter another",
+        min: "ERROR: number entered is too small. Must be greater than -50",
+        max: "ERROR: number entered is too large. Must be less than 50",
+        required: "ERROR: no number was entered. Try again"
       },
       VerticalStartRow: {
-        number: "ERROR: you did not enter a valid number.",
-        min: "ERROR: number entered is too small.",
-        max: "ERROR: number entered is too large.",
-        required: "ERROR: no number was entered."
+        number: "ERROR: you did not enter a valid number. Please enter another",
+        min: "ERROR: number entered is too small. Must be greater than -50",
+        max: "ERROR: number entered is too large. Must be less than 50",
+        required: "ERROR: no number was entered. Try again"
       },
       VerticleEndRow: {
-        number: "ERROR: you did not enter a valid number.",
-        min: "ERROR: number entered is too small.",
-        max: "ERROR: number entered is too large.",
-        required: "ERROR: no number was entered."
+        number: "ERROR: you did not enter a valid number. Please enter another",
+        min: "ERROR: number entered is too small. Must be greater than -50",
+        max: "ERROR: number entered is too large. Must be less than 50",
+        required: "ERROR: no number was entered. Try again"
       }
     },
 
-
+//if passes all rules, make table
     submitHandler: function() {
       MakeTable();
       return false;
     },
-
+//if not clear the table
     invalidHandler: function() {
 
       $("#MultiTable").empty();
     }
-
 
   });
 }
@@ -102,7 +102,7 @@ function MakeTable(){
     V_end = tmp;
   }
 
-  // double check values commented out previous
+  // double check values commented out from previous example
   /*
   console.log("Horizontal start: ", H_start, "Horizontal end: ", H_end,
               "Vertical start: ", V_start, "Vertical end: ", V_end);
